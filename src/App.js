@@ -3,11 +3,13 @@ import { Instructions } from './components'
 import './styles/app.css'
 
 class App extends Component {
+  state = { shouldDisplayImage: false }
+
   render() {
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions />
+        <Instructions shouldDisplayImage={this.state.shouldDisplayImage} />
       </div>
     )
   }
