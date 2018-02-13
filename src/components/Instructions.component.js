@@ -19,6 +19,17 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
+        <ul>
+          {this.props.items
+            .filter(item => item.length >= 3)
+            .map((item, key) => (
+              <li>
+                {key % 2 === 0
+                  ? item.charAt(0).toUpperCase() + item.slice(1)
+                  : item}
+              </li>
+            ))}
+        </ul>
       </div>
     )
   }
