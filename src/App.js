@@ -7,7 +7,14 @@ class App extends Component {
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions />
+        <Instructions
+          shouldDisplayName={true}
+          items={[
+            { string: 'first bullet' },
+            { string: 'second bullet' },
+            { string: 'third bullet' }
+          ]}
+        />
       </div>
     )
   }
