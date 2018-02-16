@@ -15,7 +15,14 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
-        {this.props.items.map(item => <div> {item.string}</div>)}
+        {this.props.items.map(
+          (item, index) =>
+            index === 1 ? (
+              <div>{item.string.toUpperCase()}</div>
+            ) : (
+              <div>{item.string}</div>
+            )
+        )}
       </div>
     )
   }
