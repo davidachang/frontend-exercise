@@ -4,10 +4,11 @@ import './styles/app.css'
 
 class App extends Component {
   render() {
+    let items = ['a', 'ab', 'abc', 'abcd', 'abcde']
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions shouldDisplayImage={false} />
+        <Instructions shouldDisplayImage={false} items={items} />
       </div>
     )
   }

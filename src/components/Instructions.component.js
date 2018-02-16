@@ -8,6 +8,10 @@ class Instructions extends Component {
     super(props)
   }
   render() {
+    let items = this.props.items
+    items = items
+      .filter(item => item.length >= 3)
+      .map((item, idx) => (idx % 2 === 0 ? item.toUpperCase() : item))
     return (
       <div className="instructions">
         Follow the instructions on the README to get started!
@@ -18,6 +22,7 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
+        <ul>{items.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
       </div>
     )
   }
