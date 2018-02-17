@@ -7,7 +7,10 @@ class App extends Component {
     return (
       <div className="app">
         <h1>Hello H4I!</h1>
-        <Instructions shouldDisplayImage={false} />
+        <Instructions
+          shouldDisplayImage={true}
+          items={['This', 'is', 'for', 'pt', 'TWO']}
+        />
       </div>
       //bool values are JS so need {}, pass in props sim constructor but specify
       //avoid stuff in <div> - HTML-like stuff

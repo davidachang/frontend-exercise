@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 // TODO: uncomment this for Part 1
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
     let shouldDisplayImage = this.props.shouldDisplayImage
+    let items = this.props.items
+    items = items.filter(word => word.length >= 3)
+    items = items.map(function(word, index) {
+      if (index % 2 == 1) {
+        return word.toUpperCase()
+      } else {
+        return word.toLowerCase()
+      }
+    })
+
     //let to declare variable
     //this.props to access (sim instance fields)
 
@@ -18,12 +28,22 @@ class Instructions extends Component {
             src="https://uiuc.hack4impact.org/img/colored-logo.png"
             alt="h4i logo"
           />
+          {items.map(item => (
+            <ul>
+              <li>{item}</li>
+            </ul>
+          ))}
         </div>
       )
     } else {
       return (
         <div className="instructions">
           Follow the instructions on the README to get started!
+          {items.map(item => (
+            <ul>
+              <li>{item}</li>
+            </ul>
+          ))}
         </div>
       )
     }
