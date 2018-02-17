@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Counter extends Component {
-  state = {count: 0}
+  static PropTypes = {
+    count: PropTypes.int
+  }
+  state = {count: this.props.count}
   increment = () => {
     this.setState({count: this.state.count + 1})
   }
