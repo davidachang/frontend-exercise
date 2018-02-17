@@ -4,10 +4,6 @@ import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
 class Instructions extends Component {
-  static propTypes = {
-    shouldDisplayImage: PropTypes.bool
-  }
-
   render() {
     return (
       <div className="instructions">
@@ -33,6 +29,11 @@ class Instructions extends Component {
       </div>
     )
   }
+}
+
+Instructions.propTypes = {
+  shouldDisplayImage: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Instructions
