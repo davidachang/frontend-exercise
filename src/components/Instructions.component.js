@@ -4,7 +4,8 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   static propTypes = {
-    shouldDisplayImage: PropTypes.bool.required,
+    shouldDisplayImage: PropTypes.bool,
+    items: PropTypes.arrayOf(PropTypes.string),
   }
   render() {
     return (
@@ -19,6 +20,17 @@ class Instructions extends Component {
         ) : (
           <div />
         )}
+        <ul>
+          {this.props.items.filter(function(item){
+            return item.length >= 3
+          }).map((item, index) => item.length < 3 ? (
+            <div key={index}/>
+          ) : index % 2 === 0 ? (
+            <li key={index}>{item}</li>
+          ) : (
+            <li key={index}>{item.charAt(0).toUpperCase() + item.slice(1)}</li>
+          ))}
+        </ul>
       </div>
     )
   }
