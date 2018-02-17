@@ -5,8 +5,6 @@ import './../styles/instructions.css'
 
 class Counter extends Component {
   constructor(props) {
-    console.log('constructing')
-    console.log(props.init)
     super(props)
     this.state = {
       count: props.init
@@ -15,12 +13,10 @@ class Counter extends Component {
     this.dec_count = this.dec_count.bind(this)
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props !== prevProps) {
-      this.setState({
-        count: this.props.init
-      })
-    }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      count: nextProps.init
+    })
   }
   inc_count() {
     this.setState({

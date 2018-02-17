@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Instructions } from './components'
 import { Counter } from './components'
+import { InitialCountForm } from './components'
 import './styles/app.css'
 
 class App extends Component {
@@ -37,18 +38,16 @@ class App extends Component {
 
   render() {
     let items = ['a', 'ab', 'abc', 'abcd', 'abcde']
-    let init = this.state.initialCount
     console.log('enter')
-    console.log(init)
     return (
       <div className="app">
         <h1>Hello World!</h1>
         <Instructions shouldDisplayImage={true} items={items} />
-        <div className="input_block">
-          <input type="text" onChange={this.onInputChange} />
-          <div>{this.state.message}</div>
-        </div>
-        <Counter init={init} />
+        <InitialCountForm
+          onChangeHandler={this.onInputChange}
+          message={this.state.message}
+        />
+        <Counter init={this.state.initialCount} />
       </div>
     )
   }

@@ -4,9 +4,6 @@ import React, { Component } from 'react'
 import './../styles/instructions.css'
 
 class Instructions extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     let items = this.props.items
     items = items
