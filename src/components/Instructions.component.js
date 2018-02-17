@@ -4,10 +4,6 @@ import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
 class Instructions extends Component {
-  // const{
-  //   shouldDisplayImage
-  // } = this.props
-
   render() {
     return (
       <div className="instructions">
@@ -19,6 +15,10 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
+        {this.props.items
+          .filter(item => item.length > 3)
+          .map((item, index) => (index % 2 === 1 ? item : item.toUpperCase()))
+          .map(item => <div key={item.id}> {item.value}</div>)}
       </div>
     )
   }
@@ -29,36 +29,3 @@ Instructions.propTypes = {
 }
 
 export default Instructions
-
-// import React, { Component } from 'react'
-// // TODO: uncomment this for Part 1
-// import PropTypes from 'prop-types'
-// import './../styles/instructions.css'
-//
-// class Instructions extends Component {
-//   function DisplayImage(props) {
-//     var shouldDisplayImage = props.shouldDisplayImage;
-//     if (shouldDisplayImage) {
-//       return <img
-//         className="instructions__logo"
-//         src="https://uiuc.hack4impact.org/img/colored-logo.png"
-//         alt="h4i logo"
-//       />;
-//     }
-//   }
-//
-//   render() {
-//     return (
-//       <div className="instructions">
-//         Follow the instructions on the README to get started!
-//         <DisplayImage shouldDisplayImage = {true} />
-//       </div>
-//     )
-//   }
-// }
-//
-// Instructions.propTypes = {
-//   shouldDisplayImage: PropTypes.bool
-// };
-//
-// export default Instructions
