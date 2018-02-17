@@ -17,7 +17,7 @@ class Instructions extends Component {
         )}
         {this.props.items.map(
           (item, index) =>
-            index === 1 ? (
+            index % 2 === 1 ? (
               <div>{item.string.toUpperCase()}</div>
             ) : (
               <div>{item.string}</div>
