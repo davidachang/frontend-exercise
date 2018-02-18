@@ -5,7 +5,7 @@ import './styles/app.css'
 
 class App extends Component {
   countInput(event) {
-    this.iniitialCount = event.target.value
+    this.initialCount = event.target.value
   }
   render() {
     return (
