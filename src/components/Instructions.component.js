@@ -5,7 +5,9 @@ import './../styles/instructions.css'
 class Instructions extends Component {
   render() {
     let items = this.props.items.filter(str => str.length > 2)
-    let listItems = items.map(str => <li key={str}>{str}</li>)
+    let listItems = items.map((str, index) => (
+      <li key={str}>{index % 2 ? str.toUpperCase() : str}</li>
+    ))
     return (
       <div className="instructions">
         {this.props.shouldDisplayImage && (
