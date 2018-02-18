@@ -8,6 +8,7 @@ class App extends Component {
       <div className="app">
         <h1>Hello World!</h1>
         <Instructions shouldDisplayImage={true} />
+        <Instructions list={['hello', 'my', 'name', 'is', 'shreyas']} />
       </div>
     )
   }
