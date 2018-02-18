@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // TODO: uncomment this for Part 1
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
 class Instructions extends Component {
@@ -19,15 +19,13 @@ class Instructions extends Component {
           {this.props.items.map(
             item =>
               item.value.length >= 3 ? (
-                this.props.items.indexOf(item) % 2 == 1 ? (
-                  <div key={item.id}>
-                    <li>{item.value.toUpperCase()}</li>
-                  </div>
-                ) : (
-                  <div key={item.id}>
-                    <li>{item.value}</li>
-                  </div>
-                )
+                <div key={item.id}>
+                  <li>
+                    {this.props.items.indexOf(item) % 2 == 1
+                      ? item.value.toUpperCase()
+                      : item.value}
+                  </li>
+                </div>
               ) : null
           )}
         </div>
