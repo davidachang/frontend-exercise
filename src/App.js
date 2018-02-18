@@ -1,30 +1,25 @@
 import React, { Component } from 'react'
-import { Instructions } from './components'
-import { Counter } from './components'
-import { InitialCountForm } from './components'
+import { Instructions, Counter, InitialCountForm } from './components'
 import './styles/app.css'
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.onInputChange = this.onInputChange.bind(this)
     this.state = {
       initialCount: 10,
       message: ''
     }
   }
 
-  onInputChange(e) {
-    let input = e.target.value
+  onInputChange = e => {
+    const input = e.target.value
     // when user delete all inputs
     if (input === '') {
-      console.log('em')
       this.setState({
         initialCount: 0,
         message: ''
       })
     } else if (!isNaN(input)) {
-      console.log(input)
       this.setState({
         initialCount: parseInt(input),
         message: ''
@@ -37,8 +32,7 @@ class App extends Component {
   }
 
   render() {
-    let items = ['a', 'ab', 'abc', 'abcd', 'abcde']
-    console.log('enter')
+    const items = ['a', 'ab', 'abc', 'abcd', 'abcde']
     return (
       <div className="app">
         <h1>Hello World!</h1>

@@ -5,8 +5,8 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
-    let items = this.props.items
-    items = items
+    const items = this.props.items
+    let filtered_items = items
       .filter(item => item.length >= 3)
       .map((item, idx) => (idx % 2 === 0 ? item.toUpperCase() : item))
     return (
@@ -19,7 +19,7 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
-        <ul>{items.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
+        <ul>{filtered_items.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
       </div>
     )
   }

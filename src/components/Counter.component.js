@@ -9,8 +9,6 @@ class Counter extends Component {
     this.state = {
       count: props.init
     }
-    this.inc_count = this.inc_count.bind(this)
-    this.dec_count = this.dec_count.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,13 +16,13 @@ class Counter extends Component {
       count: nextProps.init
     })
   }
-  inc_count() {
+  inc_count = () => {
     this.setState({
       count: this.state.count + 1
     })
   }
 
-  dec_count() {
+  dec_count = () => {
     this.setState({
       count: this.state.count - 1
     })
