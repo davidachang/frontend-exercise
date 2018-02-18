@@ -5,8 +5,8 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
-    const shouldDisplayImage = this.props.shouldDisplayImage
-    if (shouldDisplayImage == true) {
+    // const shouldDisplayImage = this.props.shouldDisplayImage
+    if (this.props.shouldDisplayImage) {
       return (
         <div className="instructions">
           Follow the instructions on the README to get started!
