@@ -6,13 +6,17 @@ import './../styles/instructions.css'
 class Counter extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { count: 0 }
-    this.handleClickIncrement = () => {
-      this.setState({ count: this.state.count + 1 })
-    }
-    this.handleClickDecrement = () => {
-      this.setState({ count: this.state.count - 1 })
-    }
+    this.state = { count: this.props.initialCount }
+  }
+  handleClickIncrement = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+  handleClickDecrement = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ count: nextProps.initialCount })
   }
   render() {
     return (

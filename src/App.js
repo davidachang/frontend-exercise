@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      shouldDisplayImage: true
+      shouldDisplayImage: true,
+      initialCount: 0
     }
     this.items = [
       'sceptile',
@@ -20,6 +21,12 @@ class App extends Component {
     ]
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    //alert(event.target[0].value);
+    this.setState({ initialCount: parseInt(event.target[0].value) })
+  }
+
   render() {
     return (
       <div className="app">
@@ -28,7 +35,12 @@ class App extends Component {
           shouldDisplayImage={this.state.shouldDisplayImage}
           list_items={this.items}
         />
-        <Counter />
+        <form onSubmit={this.handleSubmit}>
+          Enter initialCount: <input type="text" />
+          <br />
+          <button type="submit">Set initial count</button>
+        </form>
+        <Counter initialCount={this.state.initialCount} />
       </div>
     )
   }
