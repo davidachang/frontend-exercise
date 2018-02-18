@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Instructions } from './components'
+import { Instructions, Counter } from './components'
 import './styles/app.css'
 
 class App extends Component {
@@ -7,7 +7,11 @@ class App extends Component {
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions shouldDisplayImage={true} />
+        <Instructions
+          shouldDisplayImage={true}
+          items={['ra', 'dog', 'sh', 'doggo', 'cat', 'bo', 'elephant']}
+        />
+        <Counter />
       </div>
     )
   }
