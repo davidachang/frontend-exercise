@@ -5,16 +5,38 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
-    return (
-      <div className="instructions">
-        Follow the instructions on the README to get started!
-        <img
-          className="instructions__logo"
-          src="https://uiuc.hack4impact.org/img/colored-logo.png"
-          alt="h4i logo"
-        />
-      </div>
-    )
+    // console.log("hi")
+    var myitems = this.props.items.filter(function(item) {
+      return item.length > 2
+    })
+
+    myitems = myitems.map(function(item) {
+      if (myitems.indexOf(item) % 2 === 0)
+        return item.charAt(0).toUpperCase() + item.slice(1)
+      else return item
+    })
+
+    var listitems = myitems.map(x => <li>{x}</li>)
+
+    if (this.props.shouldDisplayImage) {
+      return (
+        <div className="instructions">
+          Follow the instructions on the README to get started!
+          <img
+            className="instructions__logo"
+            src="https://uiuc.hack4impact.org/img/colored-logo.png"
+            alt="h4i logo"
+          />
+          <ul>{listitems}</ul>
+        </div>
+      )
+    } else {
+      return (
+        <div className="instructions">
+          Follow the instructions on the README to get started!
+        </div>
+      )
+    }
   }
 }
 
