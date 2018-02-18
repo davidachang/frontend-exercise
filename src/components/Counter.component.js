@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-// TODO: uncomment this for Part 1
-// import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
 class Counter extends Component {
-  //this stuff before render
   state = { count: 0 }
   //also confused about this
   componentWillReceiveProps(newProps) {
