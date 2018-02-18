@@ -8,12 +8,26 @@ class App extends Component {
     this.state = {
       shouldDisplayImage: true
     }
+    this.items = [
+      'sceptile',
+      'swampert',
+      'wailord',
+      'gardevoir',
+      'pikachu',
+      'latios',
+      'ed',
+      's'
+    ]
   }
+
   render() {
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions shouldDisplayImage={this.state.shouldDisplayImage} />
+        <Instructions
+          shouldDisplayImage={this.state.shouldDisplayImage}
+          list_items={this.items}
+        />
       </div>
     )
   }
