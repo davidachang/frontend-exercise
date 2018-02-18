@@ -6,7 +6,7 @@ import './styles/app.css'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { value: '' }
+    this.state = { value: '', init: '' }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,14 +20,15 @@ class App extends Component {
     console.log('initial count: ' + this.state.value)
     if (isNaN(this.state.value)) {
       alert('Input must be a number')
-      this.setState({ value: '' })
+    } else {
+      this.setState({ init: this.state.value })
     }
     event.preventDefault()
   }
 
   render() {
     var items = ['hey', 'hi', 'hello', 'hola']
-    var initialCount = this.state.value
+    var initialCount = this.state.init
 
     return (
       <div className="app">
