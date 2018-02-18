@@ -5,7 +5,19 @@ import './../styles/instructions.css'
 
 class InitialCountForm extends Component {
   render() {
-    return ''
+    return (
+      <form onSubmit={this.props.onSubmit}>
+        <label>
+          Initial Count:
+          <input
+            type="text"
+            value={this.props.state.value}
+            onChange={this.props.onChange}
+          />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    )
   }
 }
 

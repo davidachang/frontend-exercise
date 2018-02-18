@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Instructions } from './components'
 import { Counter } from './components'
+import { InitialCountForm } from './components'
 import './styles/app.css'
 
 class App extends Component {
@@ -35,17 +36,11 @@ class App extends Component {
         <h1>Hello World!</h1>
         <Instructions shouldDisplayImage={true} items={items} />
 
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Initial Count:
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <InitialCountForm
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+          state={this.state}
+        />
 
         <Counter count={initialCount} />
       </div>
