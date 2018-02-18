@@ -5,8 +5,9 @@ import './../styles/instructions.css'
 class Counter extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-        count: this.props.initialCount }
+    this.state = {
+      count: this.props.initialCount
+    }
   }
   increment = () => {
     this.setState(state => ({
