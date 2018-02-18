@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import { Instructions } from './components'
 import { Counter } from './components'
+import { InitialCountForm } from './components'
 import './styles/app.css'
 import PropTypes from 'prop-types'
 
 class App extends Component {
   state = { initialCount: 0, shouldUpdate: false }
 
-  handleSubmitClick = event => {
-    this.setState({ initialCount: event.target.value })
-  }
-
-  handleChange = event => {
-    event.preventDefault()
-    this.setState({ shouldUpdate: true })
+  myCallback = (initialCount, shouldUpdate) => {
+    this.setState({ initialCount: initialCount, shouldUpdate: shouldUpdate })
   }
 
   render() {
@@ -25,8 +21,6 @@ class App extends Component {
       { string: 'fifth bullet' }
     ]
 
-    const { count } = this.state.initialCount
-
     return (
       <div className="app">
         <h1>Hello World!</h1>
@@ -34,13 +28,7 @@ class App extends Component {
           shouldDisplayName={true}
           items={items.filter(item => item.string.length >= 3)}
         />
-        <input
-          type="number"
-          name="Initial Value: "
-          value={this.state.initialCount}
-          onChange={this.handleSubmitClick}
-        />
-        <button onClick={this.handleChange}> Submit </button>
+        <InitialCountForm callbackFromParent={this.myCallback} />
         {this.state.shouldUpdate && <Counter count={this.state.initialCount} />}
       </div>
     )
