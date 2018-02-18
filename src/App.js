@@ -7,7 +7,16 @@ class App extends Component {
     return (
       <div className="app">
         <h1>Hello World!</h1>
-        <Instructions shouldDisplayImage={true} />
+        <Instructions
+          shouldDisplayImage={true}
+          items={[
+            { id: 'a', value: 'apple' },
+            { id: 'b', value: 'banana' },
+            { id: 'c', value: 'clementine' },
+            { id: 'd', value: 'dragonfruit' },
+            { id: 'e', value: 'eg' }
+          ]}
+        />
       </div>
     )
   }
