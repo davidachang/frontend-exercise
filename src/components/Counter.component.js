@@ -6,6 +6,10 @@ import './../styles/instructions.css'
 class Counter extends Component {
   //this stuff before render
   state = { count: 0 }
+  //also confused about this
+  componentWillReceiveProps(newProps) {
+    this.setState({ count: newProps.count })
+  }
   inc = () => {
     this.setState({ count: this.state.count + 1 })
   }

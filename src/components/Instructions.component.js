@@ -16,9 +16,6 @@ class Instructions extends Component {
       }
     })
 
-    //let to declare variable
-    //this.props to access (sim instance fields)
-
     if (shouldDisplayImage) {
       return (
         <div className="instructions">
@@ -28,6 +25,7 @@ class Instructions extends Component {
             src="https://uiuc.hack4impact.org/img/colored-logo.png"
             alt="h4i logo"
           />
+          <br />
           {items.map(item => (
             <ul>
               <li>{item}</li>
@@ -39,6 +37,7 @@ class Instructions extends Component {
       return (
         <div className="instructions">
           Follow the instructions on the README to get started!
+          <br />
           {items.map(item => (
             <ul>
               <li>{item}</li>
