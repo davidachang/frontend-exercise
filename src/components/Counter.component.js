@@ -3,11 +3,10 @@ import React, { Component } from 'react'
 import './../styles/instructions.css'
 
 class Counter extends Component {
-  state = { count: 0 }
+  state = { count: this.props.initialCount }
   handlePlusClick = () => {
     this.setState(state => {
-      state.count++
-      return { count: state.count }
+      return { count: state.count + 1 }
     })
   }
   handleReset = () => {
@@ -15,9 +14,15 @@ class Counter extends Component {
   }
   handleMinusClick = () => {
     this.setState(state => {
-      state.count--
-      return { count: state.count }
+      return { count: state.count - 1 }
     })
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.initialCount !== this.state.count) {
+      this.setState(state => {
+        return { count: nextProps.initialCount }
+      })
+    }
   }
   render() {
     return (
