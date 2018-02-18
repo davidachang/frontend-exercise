@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Instructions } from './components'
+import { Counter } from './components'
 import './styles/app.css'
 
 class Counter extends React.Component {
