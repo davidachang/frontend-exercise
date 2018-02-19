@@ -5,7 +5,6 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
-    // console.log("hi")
     var myitems = this.props.items.filter(function(item) {
       return item.length > 2
     })
@@ -18,25 +17,19 @@ class Instructions extends Component {
 
     var listitems = myitems.map(x => <li>{x}</li>)
 
-    if (this.props.shouldDisplayImage) {
-      return (
-        <div className="instructions">
-          Follow the instructions on the README to get started!
+    return (
+      <div className="instructions">
+        Follow the instructions on the README to get started!
+        {this.props.shouldDisplayImage && (
           <img
             className="instructions__logo"
             src="https://uiuc.hack4impact.org/img/colored-logo.png"
             alt="h4i logo"
           />
-          <ul>{listitems}</ul>
-        </div>
-      )
-    } else {
-      return (
-        <div className="instructions">
-          Follow the instructions on the README to get started!
-        </div>
-      )
-    }
+        )}
+        <ul>{listitems}</ul>
+      </div>
+    )
   }
 }
 
