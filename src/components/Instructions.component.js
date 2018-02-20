@@ -14,36 +14,24 @@ class Instructions extends Component {
       }
     })
 
-    if (shouldDisplayImage) {
-      return (
-        <div className="instructions">
-          Follow the instructions on the README to get started!
+    return (
+      <div className="instructions">
+        Follow the instructions on the README to get started!
+        {this.props.shouldDisplayImage && (
           <img
             className="instructions__logo"
             src="https://uiuc.hack4impact.org/img/colored-logo.png"
             alt="h4i logo"
           />
-          <br />
-          {items.map(item => (
-            <ul>
-              <li>{item}</li>
-            </ul>
-          ))}
-        </div>
-      )
-    } else {
-      return (
-        <div className="instructions">
-          Follow the instructions on the README to get started!
-          <br />
-          {items.map(item => (
-            <ul>
-              <li>{item}</li>
-            </ul>
-          ))}
-        </div>
-      )
-    }
+        )}
+        <br />
+        {items.map(item => (
+          <ul>
+            <li>{item}</li>
+          </ul>
+        ))}
+      </div>
+    )
   }
 }
 
