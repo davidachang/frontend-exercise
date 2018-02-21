@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './../styles/instructions.css'
 
+function moreThan3(str) {
+  return str.length > 3
+}
 class Instructions extends Component {
   render() {
+    const ListItems = this.props.items
+      .filter(moreThan3)
+      .map(item => <li>{item.toUpperCase()}</li>)
     return (
       <div className="instructions">
         Follow the instructions on the README to get started!
@@ -14,6 +20,7 @@ class Instructions extends Component {
             alt="h4i logo"
           />
         )}
+        <ul>{ListItems}</ul>
       </div>
     )
   }
