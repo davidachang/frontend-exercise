@@ -5,8 +5,7 @@ import './../styles/instructions.css'
 
 class Instructions extends Component {
   render() {
-    const items = this.props.items
-    let filtered_items = items
+    const filtered_items = this.props.items
       .filter(item => item.length >= 3)
       .map((item, idx) => (idx % 2 === 0 ? item.toUpperCase() : item))
     return (
