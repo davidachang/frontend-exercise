@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+
 import './../styles/instructions.css'
 
 class Counter extends Component {
-  state = { count: this.props.initialCount }
+  constructor(props) {
+    super(props)
+    this.state = { count: this.props.initialCount }
+  }
+
   handlePlusClick = () => {
     this.setState(state => {
       return { count: state.count + 1 }
@@ -18,15 +22,16 @@ class Counter extends Component {
     })
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.initialCount !== this.state.count) {
+    if (nextProps.initialCount !== this.props.initialCount) {
       this.setState(state => {
         return { count: nextProps.initialCount }
       })
     }
   }
+
   render() {
     return (
-      <div classname="counter">
+      <div className="counter">
         <label>{this.state.count}</label>
         <button onClick={this.handlePlusClick}>+</button>
         <button onClick={this.handleReset}>Reset</button>
