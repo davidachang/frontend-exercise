@@ -8,8 +8,18 @@ class Counter extends Component {
     this.state = { count: this.props.initialCount }
   }
 
+  increment = () => {
+    this.setState(state => ({
+      count: state.count + 1
+    }))
+  }
+  decrement = () => {
+    this.setState(state => ({
+      count: state.count - 1
+    }))
+  }
   render() {
-    return <div>Count state: {this.state.count}</div>
+    return <div>{this.state.count}</div>
   }
 }
 
