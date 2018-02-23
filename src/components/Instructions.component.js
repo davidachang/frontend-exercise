@@ -5,14 +5,14 @@ class Instructions extends Component {
   render() {
     let shouldDisplayImage = this.props.shouldDisplayImage
     let items = this.props.items
-    items = items.filter(word => word.length >= 3)
-    items = items.map(function(word, index) {
-      if (index % 2 == 1) {
-        return word.toUpperCase()
-      } else {
-        return word.toLowerCase()
-      }
-    })
+      .filter(word => word.length >= 3)
+      .map(function(word, index) {
+        if (index % 2 == 1) {
+          return word.toUpperCase()
+        } else {
+          return word.toLowerCase()
+        }
+      })
 
     return (
       <div className="instructions">

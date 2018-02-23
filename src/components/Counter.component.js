@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import './../styles/instructions.css'
 
 class Counter extends Component {
-  state = { count: 0 }
-  //also confused about this
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
   componentWillReceiveProps(newProps) {
     this.setState({ count: newProps.count })
   }

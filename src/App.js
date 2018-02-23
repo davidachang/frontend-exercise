@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Instructions } from './components'
-import { Counter } from './components'
-import { InitialCounterForm } from './components'
+import { Instructions, Counter, InitialCounterForm } from './components'
 import './styles/app.css'
 
 class App extends Component {

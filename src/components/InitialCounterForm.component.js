@@ -7,10 +7,8 @@ class InitialCounterForm extends Component {
   constructor(props) {
     super(props)
     this.state = { initialCount: '' }
-    this.validate = this.validate.bind(this)
-    this.update = this.update.bind(this)
   }
-  validate(event) {
+  validate = event => {
     if (isNaN(this.state.initialCount)) {
       alert(
         "Stop trying to fuck with me by putting in '" +
@@ -21,7 +19,7 @@ class InitialCounterForm extends Component {
       this.props.passBack(this.state.initialCount)
     }
   }
-  update(event) {
+  update = event => {
     this.setState({ initialCount: event.target.value })
   }
   render() {
