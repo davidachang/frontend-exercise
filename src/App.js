@@ -42,7 +42,7 @@ class App extends Component {
           state={this.state}
         />
 
-        <Counter count={initialCount} />
+        <Counter count={this.state.init} />
       </div>
     )
   }

@@ -4,21 +4,25 @@ import React, { Component } from 'react'
 import './../styles/instructions.css'
 
 class Counter extends Component {
+  state = { count: this.props.count }
+  componentWillReceiveProps(newProps) {
+    this.setState({ count: newProps.count })
+  }
+  incrementCount = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+  decrementCount = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
+
   render() {
-    var count = this.props.count
-    var incrementCount = function() {
-      count++
-      console.log(count)
-    }
-    var decrementCount = function() {
-      count--
-      console.log(count)
-    }
+    // var count = this.props.count
+
     return (
       <div>
-        <button onClick={incrementCount}>Add</button>
-        <button onClick={decrementCount}>Subtract</button>
-        <p>{count}</p>
+        <button onClick={this.incrementCount}>Add</button>
+        <button onClick={this.decrementCount}>Subtract</button>
+        <p>{this.state.count}</p>
       </div>
     )
   }
