@@ -8,6 +8,22 @@ class Instructions extends Component {
     shouldDisplayImage: true
   }
 
+  static stringList = [
+    { value: 'string1' },
+    { value: 'askdfja' },
+    { value: 'red' },
+    { value: 'orange' },
+    { value: 'yellow' },
+    { value: 'green' },
+    { value: 'blue' },
+    { value: 'indigo' },
+    { value: 'violet' }
+  ]
+
+  static lengthFormatted = Instructions.stringList.filter(function(stringItem) {
+    return stringItem.value.length > 3
+  })
+
   render() {
     return (
       <div className="instructions">
@@ -18,9 +34,20 @@ class Instructions extends Component {
             src="https://uiuc.hack4impact.org/img/colored-logo.png"
             alt="h4i logo"
           />
-        ) : (
-          <div />
-        )}
+        ) : null}
+        <ul>
+          {Instructions.lengthFormatted.map(
+            (stringItem, index) =>
+              index % 2 === 0 ? (
+                <li key={index}>
+                  {stringItem.value.charAt(0).toUpperCase() +
+                    stringItem.value.slice(1)}
+                </li>
+              ) : (
+                <li key={index}>{stringItem.value}</li>
+              )
+          )}
+        </ul>
       </div>
     )
   }
