@@ -10,12 +10,9 @@ class App extends Component {
     this.state = {
       count: 0
     }
-
-    this.updateCounter = this.updateCounter.bind(this)
   }
 
-  updateCounter(newCount) {
-    // Usually call setState with a callback function because setState operates asynchronously
+  updateCounter = newCount => {
     this.setState({ count: newCount })
   }
 
