@@ -9,11 +9,8 @@ class Instructions extends Component {
   constructor(props) {
     super()
     this.state = {
-      inputValue: 0,
       counter: 0
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   onClick(e) {
@@ -26,17 +23,6 @@ class Instructions extends Component {
     this.setState({
       counter: this.state.counter - 1
     })
-  }
-
-  handleChange(event) {
-    this.setState({ inputValue: event.target.value })
-  }
-
-  handleSubmit(event) {
-    this.setState({
-      counter: parseInt(this.state.inputValue)
-    })
-    console.log(this.state.inputValue)
   }
 
   render() {
@@ -66,10 +52,13 @@ class Instructions extends Component {
           <button onClick={this.onSecClick.bind(this)}> Decrementor </button>
         </div>
         {/*PART III*/}
-        {/*PART IV*/}
-        <input value={this.state.inputValue} onChange={this.handleChange} />
+        {/*PART IV
+        <input value={this.state.initialCount} onChange={this.handleChange} />
         <button onClick={this.handleSubmit}> submit </button>
-        {/*PART IV*/}
+         PART IV*/}
+        {/*PART V*/}
+        <InitialCountForm />
+        {/*PART V*/}
       </div>
     )
   }
@@ -113,5 +102,40 @@ function jsUcfirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 /*PART II*/
+
+/*PART V*/
+class InitialCountForm extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      initialCount: 0
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({ initialCount: event.target.value })
+  }
+  handleSubmit(event) {
+    this.setState({
+      counter: parseInt(this.state.initialCount)
+    })
+    console.log(this.state.initialCount)
+  }
+
+  render() {
+    return (
+      <div>
+        <input value={this.state.initialCount} onChange={this.handleChange} />
+        <button onClick={this.handleSubmit}> submit </button>
+      </div>
+    )
+  }
+}
+InitialCountForm.propTypes = {
+  initialCount: PropTypes.Number
+}
+/*PART V*/
 
 export default Instructions
