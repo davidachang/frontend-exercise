@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 
 class Instructions extends Component {
   constructor(props) {
+    super()
     this.state = {
       counter: 0
     }
@@ -14,14 +15,17 @@ class Instructions extends Component {
 
   onClick(e) {
     this.setState({
-      counter: this.state.count + 1
+      counter: this.state.counter + 1
+    })
+  }
+
+  onSecClick(e) {
+    this.setState({
+      counter: this.state.counter - 1
     })
   }
 
   render() {
-    this.state = {
-      counter: 0
-    }
     return (
       <div className="instructions">
         Follow the instructions on the README to get started!
@@ -46,7 +50,7 @@ class Instructions extends Component {
         <div>
           <h1>{this.state.counter}</h1>
           <button onClick={this.onClick.bind(this)}> Incrementer </button>
-          <button> Decrementor </button>
+          <button onClick={this.onSecClick.bind(this)}> Decrementor </button>
         </div>
         {/*PART III*/}
       </div>
