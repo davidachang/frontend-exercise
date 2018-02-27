@@ -3,11 +3,25 @@ import './../styles/instructions.css'
 
 // TODO: uncomment this for Part 1
 import PropTypes from 'prop-types'
-//
+// module.exports = Instructions
 
-//"https://uiuc.hack4impact.org/img/colored-logo.png"
 class Instructions extends Component {
+  constructor(props) {
+    this.state = {
+      counter: 0
+    }
+  }
+
+  onClick(e) {
+    this.setState({
+      counter: this.state.count + 1
+    })
+  }
+
   render() {
+    this.state = {
+      counter: 0
+    }
     return (
       <div className="instructions">
         Follow the instructions on the README to get started!
@@ -16,17 +30,38 @@ class Instructions extends Component {
           src={shouldDisplay(props)}
           alt="h4i logo"
         />
+        {/*PART II*/}
+        {/* List before capitalization and filtering */}
+        {allItems.map((item, index) => <li key={item.id}>{item.value} </li>)}
+        {/*idk why this wont filter all items  < 3 */}
+        {result.map((item, index) => <li key={item.id}>{item.value} </li>)}
+        <p />
+        {/*List after capitalization */}
+        {allItems.map((item, index) => (
+          <li key={item.id}>{jsUcfirst(item.value)} </li>
+        ))}
+        {/*PART II*/}
+        {/*PART III*/}
+        const counter = this.props;
+        <div>
+          <h1>{this.state.counter}</h1>
+          <button onClick={this.onClick.bind(this)}> Incrementer </button>
+          <button> Decrementor </button>
+        </div>
+        {/*PART III*/}
       </div>
     )
   }
 }
 
-Instructions.PropTypes = {
+/* PART I*/
+Instructions.propTypes = {
   shouldDisplayImage: PropTypes.bool
 }
 
 const props = {
-  shouldDisplayImage: true
+  shouldDisplayImage: true,
+  counter: 0
 }
 
 function shouldDisplay(props) {
@@ -35,5 +70,36 @@ function shouldDisplay(props) {
   }
   return ''
 }
+/* PART I*/
+
+/*PART II*/
+
+const allItems = [
+  { id: 'chicken', value: 'chicken nuggets' },
+  { id: 'shrek', value: 'gurl u shrexy' },
+  { id: 'leave', value: 'gg' },
+  { id: 'no', value: 'ay' },
+  { id: 'croissant', value: 'are you gonna finish that croissant' },
+  {
+    id: 'memeless',
+    value: 'I cant believe you guys dont even care about memes'
+  }
+]
+const result = allItems.filter(item => item.length < 3)
+
+//capitalization function
+function jsUcfirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+/*PART II*/
+
+/*PART III*/
+function incrementCounter(props) {
+  props.counter++
+}
+function decrementCounter(props) {
+  props.counter--
+}
+/*PART III*/
 
 export default Instructions
