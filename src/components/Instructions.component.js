@@ -9,8 +9,11 @@ class Instructions extends Component {
   constructor(props) {
     super()
     this.state = {
+      inputValue: 0,
       counter: 0
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   onClick(e) {
@@ -23,6 +26,17 @@ class Instructions extends Component {
     this.setState({
       counter: this.state.counter - 1
     })
+  }
+
+  handleChange(event) {
+    this.setState({ inputValue: event.target.value })
+  }
+
+  handleSubmit(event) {
+    this.setState({
+      counter: parseInt(this.state.inputValue)
+    })
+    console.log(this.state.inputValue)
   }
 
   render() {
@@ -46,13 +60,16 @@ class Instructions extends Component {
         ))}
         {/*PART II*/}
         {/*PART III*/}
-        const counter = this.props;
         <div>
           <h1>{this.state.counter}</h1>
           <button onClick={this.onClick.bind(this)}> Incrementer </button>
           <button onClick={this.onSecClick.bind(this)}> Decrementor </button>
         </div>
         {/*PART III*/}
+        {/*PART IV*/}
+        <input value={this.state.inputValue} onChange={this.handleChange} />
+        <button onClick={this.handleSubmit}> submit </button>
+        {/*PART IV*/}
       </div>
     )
   }
@@ -96,14 +113,5 @@ function jsUcfirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 /*PART II*/
-
-/*PART III*/
-function incrementCounter(props) {
-  props.counter++
-}
-function decrementCounter(props) {
-  props.counter--
-}
-/*PART III*/
 
 export default Instructions
